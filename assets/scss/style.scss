@@ -1,0 +1,359 @@
+@import './utils/theme.scss';
+@import './utils/elevation.scss';
+// @import './utils/typography.scss';
+
+@import './components/aki-button.scss';
+@import './components/aki-card.scss';
+@import './components/aki-divider.scss';
+@import './components/aki-toolbar.scss';
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+// TODO: Media queries for smaller screens and devices.
+
+html {
+    font-size: 100%; // 16px
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    height: 100vh;
+    line-height: 1.75;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+    margin: 3rem 0 1.38rem;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
+}
+
+h1 {
+    // margin-top: 0;
+    font-size: 4.209rem;
+}
+
+h2 {
+    font-size: 3.157rem;
+}
+
+h3 {
+    font-size: 2.369rem;
+}
+
+h4 {
+    font-size: 1.777rem;
+}
+
+h5 {
+    font-size: 1.333rem;
+}
+
+small,
+.text_small {
+    font-size: 0.75rem;
+}
+
+// --------
+
+header {
+
+    .left,
+    .center,
+    .right {
+        align-items: inherit;
+        display: inherit;
+        height: calc(100% - 2rem);
+        padding: 1rem;
+    }
+
+    .center,
+    .right {
+        text-transform: uppercase;
+    }
+
+    .left {
+        .logo {
+            display: block;
+            filter: invert(1);
+            height: 3rem;
+            width: 3rem;
+        }
+
+        .title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: .03125em;
+            margin-left: 1rem;
+
+            @media (max-width: #{$bp-small}) {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: #{$bp-small}) {
+            flex: 1 1 auto;
+            padding: 0 !important;
+            order: 2;
+        }
+    }
+
+    .center {
+        flex: 1 1 auto;
+        justify-content: center;
+
+        button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: none; // hidden by default
+            padding: 0;
+
+            img {
+                display: block;
+                height: 1.5rem;
+                width: 1.5rem;
+            }
+        }
+
+        @media (max-width: #{$bp-small}) {
+            flex: initial;
+            order: 1;
+        }
+    }
+
+    .right {
+        .dropdown-button {
+            display: none;
+        }
+
+        @media (max-width: #{$bp-medium}) {
+            &.dropdown {
+                align-items: center;
+                cursor: pointer;
+                display: flex;
+                justify-content: center;
+                min-width: 4rem;
+
+                float: left;
+                overflow: hidden;
+
+                &:hover .dropdown-content {
+                    // display: block;
+                    background: $primary;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+                    display: flex;
+                    flex-direction: column;
+                    padding: 1rem;
+                    right: 0;
+                    top: 5.5rem;
+                }
+
+                .dropdown-button {
+                    display: initial;
+                }
+
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    z-index: 1;
+                }
+            }
+        }
+
+        @media (max-width: #{$bp-small}) {
+            order: 3;
+        }
+    }
+}
+
+main {
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    width: 100%;
+
+    .bg-video {
+        background-color: $background;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+        position: fixed;
+        right: 0;
+        top: 0;
+        z-index: -99;
+
+        .wrapper {
+            background-color: $secondary;
+            height: 100%;
+            width: 100%;
+            z-index: -98;
+
+            video {
+                height: 100%;
+                object-fit: cover;
+                width: 100%;
+            }
+        }
+
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            height: 100%;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 0;
+        }
+    }
+
+    #router-outlet {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto
+    }
+}
+
+footer {
+    bottom: 0;
+    color: rgba(255, 255, 255, .25);
+    font-size: .625rem;
+    left: 0;
+    padding: .5rem 1.5rem;
+    position: absolute;
+    width: calc(100% - 1.5rem * 2);
+
+    @media (max-width: #{$bp-small}) {
+        display: none;
+    }
+}
+
+a {
+    color: $accent;
+    text-decoration: none;
+}
+
+div[overlay-menu-content] {
+    background-color: $accent;
+    bottom: 0;
+    box-shadow: $elevation-z16;
+    color: $on-accent;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 5.5rem; // header height
+    width: 10rem;
+    z-index: 99;
+
+    a {
+        color: inherit;
+        margin-bottom: .5rem;
+        padding: .5rem .5rem .5rem 1rem;
+        text-decoration: none;
+
+        &:first-child {
+            margin-top: .5rem;
+        }
+    }
+
+    .disclaimer {
+        color: rgba($on-accent, .5);
+        font-size: .625rem;
+        padding: .5rem .5rem .5rem 1rem;
+    }
+
+    &[opened] {
+        left: 0rem;
+    }
+
+    &[closed] {
+        left: -10rem;
+    }
+}
+
+.view {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    padding: 0 1rem;
+
+    &[home] {
+        [aki-button] {
+            font-size: 1.25rem;
+            letter-spacing: 0.009375em;
+            padding: .5rem 1.25rem;
+            // text-transform: uppercase;
+        }
+
+        .tagline {
+            bottom: 4rem;
+            color: #fff;
+            position: absolute;
+            right: 4rem;
+            text-transform: uppercase;
+
+            div {
+                font-size: 1.25rem;
+                text-align: right;
+
+                &:first-child {
+                    font-size: 3rem;
+                    text-align: initial;
+                }
+            }
+
+            @media (max-width: #{$bp-small}),
+            (max-height: 30rem) {
+                display: none;
+            }
+        }
+    }
+
+    &[download] {
+        a {
+            font-size: 1rem;
+        }
+    }
+
+    &[features] {
+        // Lazy mobile features view "fix"
+        // justify-content: flex-start;
+
+        [aki-card] {
+            margin: 0 1rem 1.5rem;
+            max-width: 40rem;
+
+            &:first-child {
+                margin-top: 1.5rem;
+            }
+        }
+    }
+
+    &[community] {
+        a {
+            font-size: 1.25rem;
+            letter-spacing: 0.009375em;
+            margin-top: 1.5rem;
+            padding: .75rem 1.5rem;
+        }
+    }
+}

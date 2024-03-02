@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Source+Sans+Pro:wght@400;700&display=swap');
+
+$background: #fff;
+$on-background: #000;
+
+$primary: #080808;
+$on-primary: #fff;
+
+$secondary: #1f1f1f;
+$on-secondary: #fff;
+
+$accent: #ffc107;
+$on-accent: #000;
+
+// $font-source-sans-pro: 'Source Sans Pro';
+// $font-open-sans: 'Open Sans';
+$base-font-size: 16px;
+$base-line-height: 1.5;
+
+$border-radius: .125rem; // for 16px base size = 2px border radius.
+
+// == Breakpoints
+$bp-small: 48em; // 768px
+$bp-medium: 64em; // 1024px
+$bp-large: 85.375em; // 1366px
+$bp-xlarge: 120em; // 1920px
+$bp-xxlarge: 160em; // 2560px
+
+// == Media Queries
+$mq-small: "(min-width: #{$bp-small})";
+$mq-medium: "(min-width: #{$bp-medium})";
+$mq-large: "(min-width: #{$bp-large})";
+$mq-xlarge: "(min-width: #{$bp-xlarge})";
+$mq-xxlarge: "(min-width: #{$bp-xxlarge})";
+$mq-retina: "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)";

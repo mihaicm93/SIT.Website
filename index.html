@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>StayInTarkov</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-135366714-3"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'UA-135366714-3');
+    </script>
+</head>
+
+<body>
+    <header aki-toolbar>
+        <a class="left" href="https://discord.gg/f4CN4n3nP2">
+            <img class="logo" src="./assets/img/discordl.png">
+        </a>
+
+        <a class="center" href="#home">
+            <img class="logo" src="./assets/img/logo.png">
+            </a>
+
+        <a class="right" href="https://github.com/stayintarkov">
+                <img class="logo" src="./assets/img/githubl.png">
+            </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="bg-video">
+            <div class="wrapper">
+                <video autoplay muted loop>
+                    <source src="./assets/video/background.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="overlay"></div>
+        </div>
+
+        <div id="router-outlet">
+            <!-- This is where the magic happens -->
+        </div>
+    </main>
+
+    <footer>SIT is not affiliated with Battlestate Games Ltd. in any way.</footer>
+
+    <script src="./assets/js/akiSideMenu.js"></script>
+    <script src="./assets/js/aki-navigator.js"></script>
+    <script>
+        const akiNavigator = new AkiNavigator('home');
+    </script>
+</body>
+
+</html>

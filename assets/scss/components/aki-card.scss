@@ -1,0 +1,25 @@
+aki-card,
+*.aki-card,
+*[aki-card] {
+    background: $primary;
+    box-shadow: $elevation-z1;
+    border-radius: .125rem;
+    color: $on-primary;
+    display: flex;
+    flex-direction: column;
+    max-width: 60ch; // Ideal character count per row.
+    padding: 1.25rem 1.5rem;
+
+    aki-card-title
+    *.aki-card-title,
+    *[aki-card-title] {
+        font-size: 1.25rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+    }
+
+    &.elevated-card {
+        box-shadow: $elevation-z8;
+    }
+}
